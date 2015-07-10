@@ -1,0 +1,32 @@
+doctype html
+- var title = 'Modis'
+
+block vars 
+    
+html.no-js(lang="")
+  head
+    meta(charset="utf-8")
+    meta(name="description", content="")
+    //- meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui")
+    title #{title}
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    // build:css styles/main.css
+    // link(rel="stylesheet", href="styles/vendor.css")
+    link(rel="stylesheet", href="styles/main.css")
+    // endbuild
+    // build:js scripts/vendor/modernizr.js
+    // endbuild
+  body
+    block content
+    #fb-root
+    script.
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=404228743115313";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    script(src="//vk.com/js/api/openapi.js?116")
+    script(src="scripts/main.concat.js")
+    block scripts

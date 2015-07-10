@@ -1,0 +1,90 @@
+extends templates/layout
+
+block content
+	header.header
+		.wrapper
+			a(href="#").header__logo
+			.header__left-block
+				.block__top Когда
+				.block__date 18-19 июля 2015
+				.block__time 12.00 до 23.00
+			.header__left-block
+				.block__top Где
+				.block__date Парк 300-летия Санкт-Птеребурга
+				.block__time Приморский проспект, 157
+			a(href="#").header__vk-logo
+	section.block-counter
+		.wrapper
+			.counter__title ДО НАЧАЛА ФЕСТИВАЛЯ ОСТАЛОСЬ
+			.counter__numbers.js-countdown 12 : 08 : 40
+			.counter__text
+				span Дни
+				span Часы
+				span Минуты
+	section.block-visit
+		.wrapper
+			.us-title Посетите MODIS Home
+			ul.visit__list.list-top
+				li.list__item
+					.item__number 1
+					.item__image
+						img(src="images/visit-circle.png")
+				li.list__item
+					.item__number 2
+					.item__image
+						img(src="images/visit-circle.png")
+				li.list__item
+					.item__number 3
+					.item__image
+						img(src="images/visit-circle.png")
+			.visit__list.list-bottom
+				.list__item
+					.item__desc ДИДЖИТАЛ<br>И ОФФЛАЙН ИНТЕРАКТИВЫ
+				.list__item
+					.item__desc КУПИТЬ ОДЕЖДУ<br>И ПОСМОТРЕТЬ КАТАЛОГ
+				.list__item
+					.item__desc ПООБЩАТЬСЯ<br>С ПОПУЛЯРНЫМИ БЛОГЕРАМИ
+	section.block-tabs
+		.wrapper
+			.tabs-item
+				.us-title Интерактивы
+				ul.tabs__metro
+					each i in [1,2,3,4,5,6]
+						li.metro__block
+							.block-wrapper
+								.block__image(style="background-image: url(images/inter1.jpg);")
+								.block__info
+									.info__title #<b>Modis</b>chekin
+									.info__desc Делали ли вы в детстве фигурки животных? Мы придумали интерактивный театр теней, где фигурки обрабатываются с помощью камеры и оживают в лучах проектора.
+	section.block-location
+		.us-title Как найти нас на фестивале
+		.location__map
+			img(src="images/map.png")
+	section.block-follow
+		.wrapper
+			.us-title Подпишись
+			.follow__desc на соцсети, чтобы не упустить свои<br>фото с фестиваля
+			.follow__widgets
+				.widgets__item
+					#vk_groups
+				.widgets__item
+					.fb-page(data-href='https://www.facebook.com/modisfashionrussia', data-height="389", data-small-header='true', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true', data-show-posts='true')
+						.fb-xfbml-parse-ignore
+							blockquote(cite='https://www.facebook.com/modisfashionrussia')
+								a(href='https://www.facebook.com/modisfashionrussia') MODIS_Fashion
+	footer.footer
+		.wrapper
+			span.footer__left &copy; 2015, <a href="#">MODIS</a>. Все права защищены
+			span.footer__right
+				span.right__text Modis в соцсетях
+				span.right__icons
+					a(href="#").icons__item
+						i.svg-icon.icon-fb
+					a(href="#").icons__item
+						i.svg-icon.icon-ok
+					a(href="#").icons__item
+						i.svg-icon.icon-pn
+					a(href="#").icons__item
+						i.svg-icon.icon-in
+					a(href="#").icons__item
+						i.svg-icon.icon-vk
