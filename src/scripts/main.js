@@ -1,6 +1,6 @@
 function validateEmail(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    return re.test(email);
+	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	return re.test(email);
 }
 
 window.vkw = function() {
@@ -8,11 +8,11 @@ window.vkw = function() {
 };
 window.countdown = function() {
 	$(".js-countdown")
-   .countdown("2015/07/18", function(event) {
-     $(this).text(
-       event.strftime('%D : %H : %M')
-     );
-   });
+		.countdown("2015/07/18", function(event) {
+			$(this).text(
+				event.strftime('%D : %H : %M')
+			);
+		});
 };
 window.scrollShow = function() {
 	var addActive = function(elem, eq, max, time) {
@@ -60,39 +60,54 @@ window.mail = function() {
 		};
 
 		var onError = function(data) {
-			debugger
+			// debugger
 			console.log(data);
 			$('.js-mail-fail').slideDown();
 		};
 
 		$btn.addClass('loading');
 
-		var MAILCHIMP_API_KEY = '9019ebbf2137b5602e8d143b82fc50bd-us11';
-		var MAILCHIMP_URL = 'https://us11.api.mailchimp.com/';
+		// var MAILCHIMP_API_KEY = '9019ebbf2137b5602e8d143b82fc50bd-us11';
+		// var MAILCHIMP_API_URL = 'https://us11.api.mailchimp.com/3.0/';
+		// var MAILCHIMP_LIST_ID = '0bdb331b30';
+
 		var email_address = $emailInput.val();
-		var listId = 154181;
+
+		// $.ajax({
+		// 	url: MAILCHIMP_API_URL + 'lists/' + MAILCHIMP_LIST_ID + '/members',
+		// 	method: 'post',
+		// 	data: JSON.stringify({
+		// 		email_address: email_address,
+		// 		status: 'subscribed'
+		// 	}),
+		// 	dataType: 'json',
+
+		// 	headers: {
+		// 		'Authorization': 'Basic ' + btoa('apikey:' + MAILCHIMP_API_KEY)
+		// 	}
+		// })
+	
+		// var BASE_URL = 'http://modis.ru/';
+		var url = 'https://docs.google.com/forms/d/1bGvGUSdYXqGeO2CBPNPp63cpt8hPas_6nvL8opiBmU8/formResponse';
 
 		$.ajax({
-			url: MAILCHIMP_URL + 'lists/' + listId + '/members',
-			method: 'post',
+			url: url,
+			method: 'get',
+			crossDomain: true,
 			data: {
-				email_address: email_address
-			},
-			dataType: 'json',
-
-
-			username: 'test',
-			password: MAILCHIMP_API_KEY
+				'entry.935812420': email_address,
+			}
 		})
-			.done(function(data){
-				if (data && data.result === 'success') {
-					onSuccess(data);
-				} else {
-					onError(data);
-				}
-			})
-			.fail(onError)
+			// .done(function(data){
+			// 	if (data && data.result === 'success') {
+			// 		onSuccess(data);
+			// 	} else {
+			// 		onError(data);
+			// 	}
+			// })
+			// .fail(onError)
 			.always(function(){
+				onSuccess();
 				$btn.removeClass('loading');
 			});
 
