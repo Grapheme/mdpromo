@@ -28,6 +28,47 @@ body {
 	padding: 40px 0;
 }
 
+.black-btn {
+	height: 40px;
+	border: none;
+	background: #00a1cc;
+	border: 1px solid #00a1cc;
+	color: #fff;
+	font-size: 16px;
+	padding: 0 45px 0 50px;
+	outline: none;
+	transition: all .2s ease;
+
+	&:after {
+		@extend .svg-icon;
+		content: "\e606";
+		font-size: 20px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+		width: 0;
+		overflow: hidden;
+		opacity: 0;
+		transition: all .2s ease;
+		-webkit-animation: fa-spin 1s infinite steps(8);
+	  	animation: fa-spin 1s infinite steps(8);
+	}
+
+	&:hover {
+		background: #ffffff;
+		color: #00a1cc;
+	}
+
+	&.loading {
+		cursor: pointer;
+
+		&:after {
+			width: 21px;
+			opacity: 1;
+		}
+	}
+}
+
 .header {
 	overflow: hidden;
 
@@ -145,7 +186,7 @@ body {
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		overflow: hidden;
+		//overflow: hidden;
 		font-size: 0;
 
 		&.list-top {
@@ -166,6 +207,14 @@ body {
 			width: 33.333%;
 			box-sizing: border-box;
 			padding: 0 45px;
+			transform: translateY(10%);
+			opacity: 0;
+			transition: all .75s ease;
+
+			&.active {
+				transform: translateY(0);
+				opacity: 1;
+			}
 
 			.item__image {
 				position: relative;
@@ -186,7 +235,7 @@ body {
 			}
 
 			.item__desc {
-				font-size: 30px;
+				font-size: 27px;
 				font-weight: 300;
 				text-transform: uppercase;
 				line-height: 1.2;
@@ -218,19 +267,47 @@ body {
 				padding: 0 30px;
 				margin-bottom: 60px;
 				font-size: 14px;
+				transform: translateY(10%);
+				opacity: 0;
+				transition: all .75s ease;
+
+				&.active {
+					transform: translateY(0);
+					opacity: 1;
+				}
 
 				.block-wrapper {
 					background: #fff;
+
+					&:hover {
+						.block__image {
+							.image__src {
+								transform: scale(1.2);
+							}
+						}
+					}
 				}
 
 				.block__image {
+					position: relative;
 					height: 280px;
-					background-size: cover;
-					background-position: ceter center;
+					overflow: hidden;
+
+					.image__src {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-size: cover;
+						background-position: ceter center;
+						transition: all .4s ease;
+					}
 				}
 
 				.block__info {
 					padding: 25px;
+					min-height: 165px;
 
 					.info__title {
 						font-size: 30px;
@@ -316,6 +393,75 @@ body {
 	}
 }
 
+.news-delivery {
+	padding: 40px 20px;
+	background: #f6f6f6;
+	text-align: center;
+
+	.delivery__title {
+		font-family: 'bodonic';
+		font-size: 40px;
+		font-style: italic;
+	}
+
+	.delivery__desc {
+		font-size: 14px;
+		font-weight: 500;
+		margin-top: 25px;
+	}
+
+	.delivery__form {
+		margin-top: 40px;
+
+		.form__input {
+			background: transparent;
+			padding: 0 10px;
+			outline: none;
+			border: none;
+			border-radius: 0;
+			border-bottom: 1px solid #111;
+			font-size: 14px;
+			height: 40px;
+			width: 515px;
+			margin-right: 20px;
+
+			&::-webkit-input-placeholder {
+				color: #111;
+				font-weight: 500;
+			}
+			&::-moz-placeholder          {
+				color: #111;
+				font-weight: 500;
+			}
+			&:-moz-placeholder           {
+				color: #111;
+				font-weight: 500;
+			}
+			&:-ms-input-placeholder      {
+				color: #111;
+				font-weight: 500;
+			}
+
+			&.error-input {
+				border-bottom: 1px solid red;
+
+				&::-webkit-input-placeholder {
+					color: red;
+				}
+				&::-moz-placeholder          {
+					color: red;
+				}
+				&:-moz-placeholder           {
+					color: red;
+				}
+				&:-ms-input-placeholder      {
+					color: red;
+				}
+			}
+		}
+	}
+}
+
 .footer {
 	height: 100px;
 	line-height: 100px;
@@ -327,6 +473,12 @@ body {
 			font-weight: 700;
 			text-decoration: none;
 			color: #009fd0;
+			border-bottom: 1px solid transparent;
+			transition: all .2s ease;
+
+			&:hover {
+				border-color: #009fd0;
+			}
 		}
 	}
 
@@ -344,11 +496,23 @@ body {
 				font-size: 23px;
 				text-decoration: none;
 				color: #aaaaaa;
+				transition: color .2s ease;
 
 				&:hover {
-					color: #000;
+					color: #009fd0;
 				}
 			}
 		}
 	}
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }

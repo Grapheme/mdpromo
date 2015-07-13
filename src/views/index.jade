@@ -3,7 +3,7 @@ extends templates/layout
 block content
 	header.header
 		.wrapper
-			a(href="#").header__logo
+			a(href="http://modis.ru").header__logo
 			.header__left-block
 				.block__top Когда
 				.block__date 18-19 июля 2015
@@ -12,58 +12,104 @@ block content
 				.block__top Где
 				.block__date Парк 300-летия Санкт-Птеребурга
 				.block__time Приморский проспект, 157
-			a(href="#").header__vk-logo
+			a(href="http://vk.com/fest" target="_blank").header__vk-logo
 	section.block-counter
 		.wrapper
 			.counter__title ДО НАЧАЛА ФЕСТИВАЛЯ ОСТАЛОСЬ
 			.counter__numbers.js-countdown 12 : 08 : 40
 			.counter__text
-				span Дни
-				span Часы
-				span Минуты
+				span Дней
+				span Часов
+				span Минут
+	section.news-delivery
+		.js-form-parent
+			.delivery__title Новостная рассылка
+			.delivery__desc Оставь свой имейл и получи секретную коллекцию MODIS. До того, как тысячи посетителей увидят ее на фестивале!
+			.delivery__form
+				form.js-mail(action="json/test.json" method="Get")
+					input.form__input(placeholder="Введите Ваш email")
+					button(type="submit").black-btn Подписаться
+		.delivery__title
+			.js-mail-success(style="display: none;") Спасибо, что вы с нами!
+		.delivery__desc.js-mail-fail(style="display: none;") Произошла ошибка, повторите попытку чуть позже.
 	section.block-visit
 		.wrapper
 			.us-title Посетите MODIS Home
 			ul.visit__list.list-top
-				li.list__item
+				li.list__item(data-row="1" data-number="0")
 					.item__number 1
 					.item__image
 						img(src="images/visit-circle.png")
-				li.list__item
+				li.list__item(data-row="1" data-number="1")
 					.item__number 2
 					.item__image
-						img(src="images/visit-circle.png")
-				li.list__item
+						img(src="images/visit-circle2.png")
+				li.list__item(data-row="1" data-number="2")
 					.item__number 3
 					.item__image
-						img(src="images/visit-circle.png")
+						img(src="images/visit-circle3.png")
 			.visit__list.list-bottom
-				.list__item
-					.item__desc ДИДЖИТАЛ<br>И ОФФЛАЙН ИНТЕРАКТИВЫ
-				.list__item
-					.item__desc КУПИТЬ ОДЕЖДУ<br>И ПОСМОТРЕТЬ КАТАЛОГ
-				.list__item
-					.item__desc ПООБЩАТЬСЯ<br>С ПОПУЛЯРНЫМИ БЛОГЕРАМИ
+				.list__item(data-row="1" data-number="0")
+					.item__desc Примите участие<br>в интерактивах
+				.list__item(data-row="1" data-number="1")
+					.item__desc Покупайте одежду<br>И ПОСМОТРиТе КАТАЛОГ
+				.list__item(data-row="1" data-number="2")
+					.item__desc Общайтесь<br>С ПОПУЛЯРНЫМИ БЛОГЕРАМИ
 	section.block-tabs
 		.wrapper
 			.tabs-item
-				.us-title Интерактивы
+				.us-title Интерактивы и мастер-классы
 				ul.tabs__metro
-					each i in [1,2,3,4,5,6]
-						li.metro__block
-							.block-wrapper
-								.block__image(style="background-image: url(images/inter1.jpg);")
-								.block__info
-									.info__title #<b>Modis</b>chekin
-									.info__desc Делали ли вы в детстве фигурки животных? Мы придумали интерактивный театр теней, где фигурки обрабатываются с помощью камеры и оживают в лучах проектора.
+					li.metro__block.js-scroll-show(data-row="0" data-number="0")
+						.block-wrapper
+							.block__image
+								.image__src(style="background-image: url(images/inter1.jpg);")
+							.block__info
+								.info__title #<b>Modis</b>fun
+								.info__desc Добро пожаловать на территорию MODIS. Как насчет разминки? Для неё приготовили кое-что веселое.<br>Смартфоны в руки, внимание на экран!
+					li.metro__block.js-scroll-show(data-row="0" data-number="1")
+						.block-wrapper
+							.block__image
+								.image__src(style="background-image: url(images/inter2.jpg);")
+							.block__info
+								.info__title #<b>Modis</b>look
+								.info__desc Собери свой уникальный образ самым необычным способом. И закрепи его. Да-да, закрепи на большой магнитной доске. Оцени со стороны, какой у тебя вкус.
+					li.metro__block.js-scroll-show(data-row="0" data-number="2")
+						.block-wrapper
+							.block__image
+								.image__src(style="background-image: url(images/inter3.jpg);")
+							.block__info
+								.info__title #Like<b>Modis</b>
+								.info__desc Приходилось ли тебе ставить лайки в оффлайне? Смартфоны прочь, мы будем выбирать лучшие модели MODIS с помощью технологий будущего.  
+					li.metro__block.js-scroll-show(data-row="0" data-number="3")
+						.block-wrapper
+							.block__image
+								.image__src(style="background-image: url(images/inter4.jpg);")
+							.block__info
+								.info__title #<b>Modis</b>buyer
+								.info__desc Помоги другим быть стильными! Стань настоящим байером, и твой выбор окажется в магазинах по всей стране!
+					li.metro__block.js-scroll-show(data-row="0" data-number="4")
+						.block-wrapper
+							.block__image
+								.image__src(style="background-image: url(images/inter5.jpg);")
+							.block__info
+								.info__title(style="font-size: 24px;") #<b>Modis</b>МастерКласс
+								.info__desc Последние штрихи в твоем образе! На мастер-классах лучшие стилисты, визажисты и парикмахеры откроют секреты своего мастерства.
+					li.metro__block.js-scroll-show(data-row="0" data-number="5")
+						.block-wrapper
+							.block__image
+								.image__src(style="background-image: url(images/inter6.jpg);")
+							.block__info
+								.info__title #<b>Modis</b>Photo
+								.info__desc Образ готов, теперь можно выйти в свет. Там тебя уже караулят папарацци. До встречи на полосах глянца!
 	section.block-location
 		.us-title Как найти нас на фестивале
 		.location__map
-			img(src="images/map.png")
+			img(src="images/map.jpg")
 	section.block-follow
 		.wrapper
 			.us-title Подпишись
-			.follow__desc на соцсети, чтобы не упустить свои<br>фото с фестиваля
+			.follow__desc на наши сообщества, чтобы не упустить свои<br>фото с фестиваля
 			.follow__widgets
 				.widgets__item
 					#vk_groups
@@ -74,17 +120,19 @@ block content
 								a(href='https://www.facebook.com/modisfashionrussia') MODIS_Fashion
 	footer.footer
 		.wrapper
-			span.footer__left &copy; 2015, <a href="#">MODIS</a>. Все права защищены
+			span.footer__left &copy; 2015, <a href="http://modis.ru/" target="_blank">MODIS</a>. Все права защищены
 			span.footer__right
-				span.right__text Modis в соцсетях
+				span.right__text Modis в соц.сетях
 				span.right__icons
-					a(href="#").icons__item
+					a(href="https://www.facebook.com/modisfashionrussia" target="_blank").icons__item
 						i.svg-icon.icon-fb
-					a(href="#").icons__item
-						i.svg-icon.icon-ok
-					a(href="#").icons__item
-						i.svg-icon.icon-pn
-					a(href="#").icons__item
+					//- a(href="#").icons__item
+					//- 	i.svg-icon.icon-ok
+					//- a(href="#").icons__item
+					//- 	i.svg-icon.icon-pn
+					a(href="https://instagram.com/modis_rus/" target="_blank").icons__item
 						i.svg-icon.icon-in
-					a(href="#").icons__item
+					a(href="http://vk.com/modis_official" target="_blank").icons__item
 						i.svg-icon.icon-vk
+					a(href="http://www.youtube.com/user/ModisFashion" target="_blank").icons__item
+						i.svg-icon.icon-yt
