@@ -174,7 +174,7 @@ body {
 }
 
 .block-visit {
-	background: #00a0ce;
+	background: #00b6eb;
 	color: #fff;
 	text-align: center;
 
@@ -248,7 +248,7 @@ body {
 }
 
 .block-tabs {
-	background: #00b6eb;
+	background: #00a0ce;
 	color: #fff;
 
 	.tabs-item {
@@ -323,6 +323,87 @@ body {
 						line-height: 1.6;
 					}
 				}
+			}
+		}
+	}
+}
+
+.block-popular {
+	background: #00b6eb;
+
+	.us-title {
+		color: #fff;
+	}
+
+	.popular__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		font-size: 0;
+
+		.list__item {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 33.333%;
+			box-sizing: border-box;
+			padding: 0 30px;
+			margin-bottom: 60px;
+			margin-top: 75px;
+			font-size: 14px;
+			transform: translateY(10%);
+			opacity: 0;
+			transition: all .75s ease;
+
+			&.active {
+				transform: translateY(0);
+				opacity: 1;
+			}
+
+			.list-wrapper {
+				background: #fff;
+				padding: 100px 25px 25px;
+				text-align: center;
+				height: 200px;
+			}
+
+			.list__image {
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				left: 50%;
+				top: -75px;
+				margin-left: -75px;
+				border-radius: 150px;
+				background-size: cover;
+				background-positon: center center;
+				background-color: #ccc;
+			}
+
+			.list__name {
+				font-size: 26px;
+				color: #009fd0;
+			}
+
+			.list__link {
+				font-family: 'CenturySchoolbook';
+				font-size: 18px;
+				color: #8c8c8c;
+				margin-top: 5px;
+
+				a {
+					color: inherit;
+					font-style: italic;
+					text-decoration: none;
+				}
+			}
+
+			.list__desc {
+				font-size: 14px;
+				margin-top: 15px;
+				color: rgb(85, 85, 85);
+				line-height: 1.6;
 			}
 		}
 	}
