@@ -5,7 +5,7 @@ function validateEmail(email) {
 
 window.vkw = function() {
 	VK.Widgets.Group("vk_groups", {mode: 0, width: "358", height: "389", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 33380340);
-}
+};
 window.countdown = function() {
 	$(".js-countdown")
    .countdown("2015/07/18", function(event) {
@@ -13,7 +13,7 @@ window.countdown = function() {
        event.strftime('%D : %H : %M')
      );
    });
-}
+};
 window.scrollShow = function() {
 	var addActive = function(elem, eq, max, time) {
 		elem.filter('[data-number="' + eq + '"]').addClass('active');
@@ -21,9 +21,9 @@ window.scrollShow = function() {
 		if(eq < max) {
 			setTimeout(function(){
 				addActive(elem, eq, max, time);
-			}, time)
+			}, time);
 		}
-	}
+	};
 	var show = function() {
 		$('[data-row]').each(function(){
 			var this_row = $(this).attr('data-row');
@@ -33,43 +33,60 @@ window.scrollShow = function() {
 				addActive(this_elems, 0, this_length, 500);
 			}
 		});
-	}
+	};
 	show();
-	$(window).on('scroll', show)
-}
+	$(window).on('scroll', show);
+};
 window.mail = function() {
 	$('.js-mail').on('submit', function(e){
 		e.preventDefault();
 		var $this = $(this);
 		var $btn = $(this).find('[type="submit"]');
-		if(!validateEmail($this.find('input').val())) {
-			$this.find('input').addClass('error-input').trigger('focus');
+		var $emailInput = $this.find('input[name=EMAIL]');
+		if(!validateEmail($emailInput.val())) {
+			$emailInput.addClass('error-input').trigger('focus');
 			return;
 		} else {
-			$this.find('input').removeClass('error-input');
+			$emailInput.find('input').removeClass('error-input');
 		}
-		$btn.addClass('loading');
-		$.ajax({
-			url: $this.attr('action'),
-			method: $this.attr('method'),
-			data: $this.serialize(),
-			dataType: 'json'
-		}).done(function(data){
+
+		var onSuccess = function(data) {
 			$('.js-form-parent').slideUp(function(){
 				$('.js-mail-success').slideDown();
 			});
 			setTimeout(function(){
 				$('.js-form-parent').parent().slideUp();
 			}, 2000);
-		}).fail(function(data){
+		};
+
+		var onError = function(data) {
+			debugger
 			console.log(data);
 			$('.js-mail-fail').slideDown();
-		}).always(function(){
-			$btn.removeClass('loading');
-		});
+		};
+
+		$btn.addClass('loading');
+		$.ajax({
+			url: $this.attr('action'),
+			method: $this.attr('method'),
+			data: $this.serialize(),
+			dataType: 'json'
+		})
+			.done(function(data){
+				if (data && data.result === 'success') {
+					onSuccess(data);
+				} else {
+					onError(data);
+				}
+			})
+			.fail(onError)
+			.always(function(){
+				$btn.removeClass('loading');
+			});
+
 		return false;
 	});
-}
+};
 
 $(function(){
 	scrollShow();

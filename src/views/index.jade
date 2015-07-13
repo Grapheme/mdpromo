@@ -26,8 +26,11 @@ block content
 			.delivery__title Новостная рассылка
 			.delivery__desc Оставь свой имейл и получи секретную коллекцию MODIS. До того, как тысячи посетителей увидят ее на фестивале!
 			.delivery__form
-				form.js-mail(action="json/test.json" method="Get")
-					input.form__input(placeholder="Введите Ваш email")
+				form.js-mail(action="//igoralekseev.us11.list-manage.com/subscribe/post-json?u=786a3d2c7f03ea4539c0dc24d&amp;id=0bdb331b30" method="post")
+					div(style="position: absolute; left: -5000px;")
+						input(type="text" name="b_786a3d2c7f03ea4539c0dc24d_0bdb331b30" tabindex="-1" value="")
+
+					input.form__input(name="EMAIL" placeholder="Введите Ваш email")
 					button(type="submit").black-btn Подписаться
 		.delivery__title
 			.js-mail-success(style="display: none;") Спасибо, что вы с нами!
