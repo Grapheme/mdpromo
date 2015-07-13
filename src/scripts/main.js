@@ -66,11 +66,23 @@ window.mail = function() {
 		};
 
 		$btn.addClass('loading');
+
+		var MAILCHIMP_API_KEY = '9019ebbf2137b5602e8d143b82fc50bd-us11';
+		var MAILCHIMP_URL = 'https://us11.api.mailchimp.com/';
+		var email_address = $emailInput.val();
+		var listId = 154181;
+
 		$.ajax({
-			url: $this.attr('action'),
-			method: $this.attr('method'),
-			data: $this.serialize(),
-			dataType: 'json'
+			url: MAILCHIMP_URL + 'lists/' + listId + '/members',
+			method: 'post',
+			data: {
+				email_address: email_address
+			},
+			dataType: 'json',
+
+
+			username: 'test',
+			password: MAILCHIMP_API_KEY
 		})
 			.done(function(data){
 				if (data && data.result === 'success') {
