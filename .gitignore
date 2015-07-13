@@ -1,7 +1,11 @@
+build
+
 node_modules
 .tmp
 .sass-cache
 bower_components
 *.sublime-project
+*.sublime-workspace
+*.dbignore
 \.idea
 \!info

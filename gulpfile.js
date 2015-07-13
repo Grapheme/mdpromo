@@ -73,19 +73,21 @@ gulp.task('sass', function () {
 		.pipe(connect.reload());
 });
 
-gulp.task('copy', function () {
-	gulp.src([	app_path + '/**/*',
-				'!' + app_path + '/views/**/*.jade',
-				'!' + app_path + '/styles/**/*.scss',
-				'!' + app_path + '/scripts/**/*.js' ])
-	    //.pipe(gulpIgnore.exclude(exclude))
-	    .pipe(gulp.dest(build_path));
+gulp.task('copy_static', function () {
+	gulp.src(app_path + '/fonts/**/*')
+	 .pipe(gulp.dest(build_path + '/fonts'));
+
+	gulp.src(app_path + '/images/**/*')
+	 .pipe(gulp.dest(build_path + '/images'));
 });
 
 gulp.task('watch', function() {
 	gulp.watch(app_path + '/views/**/*.jade', ['jade']);
 	gulp.watch(app_path + '/styles/**/*.scss', ['sass']);
 	gulp.watch(app_path + '/scripts/**/*.js', ['scripts']);
+	gulp.watch([app_path + '/fonts/**/*', app_path + '/images/**/*'], ['copy_static']);
 });
 
-gulp.task('default', ['jade', 'scripts', 'sass', 'server', 'copy', 'watch']);
+gulp.task('build', ['jade', 'scripts', 'sass', 'copy_static']);
+
+gulp.task('default', [ 'build', 'watch', 'server']);
