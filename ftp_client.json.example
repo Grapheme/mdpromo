@@ -1,0 +1,8 @@
+{
+  "host":     "mywebsite.tld",
+  "user":     "me",
+  "password": "mypass",
+  "parallel": 10,
+
+  "remotePath": "/htdocs/events"
+}

@@ -88,6 +88,23 @@ gulp.task('watch', function() {
 	gulp.watch([app_path + '/fonts/**/*', app_path + '/images/**/*'], ['copy_static']);
 });
 
+gulp.task('deploy', ['build'], function() {
+
+	var gutil = require( 'gulp-util' );
+	var ftp = require( 'vinyl-ftp' );
+	var fs = require('fs');
+
+	var options = JSON.parse(fs.readFileSync('./ftp_client.json'));
+	options.log = gutil.log;
+	
+	var conn = ftp.create(options);
+
+	return gulp.src(build_path + '/**/*', { base: build_path, buffer: false } )
+        .pipe( conn.newer( options.remotePath ) ) // only upload newer files
+        .pipe( conn.dest( options.remotePath ) );
+
+});
+
 gulp.task('build', ['jade', 'scripts', 'sass', 'copy_static']);
 
 gulp.task('default', [ 'build', 'watch', 'server']);
