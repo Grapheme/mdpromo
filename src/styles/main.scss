@@ -5,7 +5,7 @@
 @import 'fonts';
 
 html {
-	font-family: "Lato";
+	font-family: 'avantgardegothicc';
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -21,7 +21,7 @@ body {
 }
 
 .us-title {
-	font-family: 'bodonic';
+	font-family: 'CenturySchoolbook';
 	font-style: italic;
 	font-size: 40px;
 	text-align: center;
@@ -79,17 +79,18 @@ body {
 	.header__logo {
 		display: inline-block;
 		vertical-align: top;
-		width: 156px;
+		width: 200px;
 		height: 58px;
-		background: url(../images/logo.jpg) center center / 100% auto no-repeat;
-		margin-top: 43px;
+		background: url(../images/logo_modis.svg) center center / 123% auto no-repeat;
+		margin-top: 47px;
+		margin-right: 20px;
 	}
 
 	.header__left-block {
 		display: inline-block;
 		vertical-align: top;
 		margin-left: 40px;
-		margin-top: 32px;
+		margin-top: 25px;
 
 		.block__top {
 			font-size: 10px;
@@ -103,12 +104,12 @@ body {
 			font-size: 24px;
 			font-weight: 300;
 			color: #00a0ce;
-			margin-top: 1px;
+			margin-top: 8px;
 		}
 
 		.block__time {
 			font-weight: 300;
-			margin-top: 3px;
+			margin-top: 6px;
 		}
 	}
 
@@ -147,7 +148,7 @@ body {
 	}
 
 	.counter__title {
-		font-family: "bodonic";
+		font-family: 'CenturySchoolbook';
 		font-size: 50px;
 		font-style: italic;
 		text-transform: uppercase;
@@ -373,7 +374,7 @@ body {
 	}
 
 	.follow__desc {
-		font-family: 'bodonic';
+		font-family: 'CenturySchoolbook';
 		font-style: italic;
 		font-size: 40px;
 	}
@@ -399,7 +400,7 @@ body {
 	text-align: center;
 
 	.delivery__title {
-		font-family: 'bodonic';
+		font-family: 'CenturySchoolbook';
 		font-size: 40px;
 		font-style: italic;
 	}
