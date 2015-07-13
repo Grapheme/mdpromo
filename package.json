@@ -24,7 +24,9 @@
     "gulp-ignore": "^1.2.1",
     "gulp-jade": "^1.0.1",
     "gulp-open": "^0.3.2",
-    "gulp-sass": "^2.0.1"
+    "gulp-sass": "^2.0.1",
+    "gulp-util": "^3.0.6",
+    "vinyl-ftp": "^0.4.2"
   },
   "dependencies": {
     "wiredep": "^2.2.2"
