@@ -412,16 +412,35 @@ body {
 .block-location {
 	padding-bottom: 80px;
 
+	.wrapper {
+		position: relative;
+	}
+
 	.us-title {
 		padding-top: 80px;
 		color: #009fd0;
 	}
 
 	.location__map {
+		position: relative;
 		text-align: center;
 
-		img {
+		.map__image {
 			max-width: 100%;
+		}
+
+		.map__enter {
+			position: absolute;
+			top: 768px;
+			left: 275px;
+			z-index: 2;
+		}
+
+		.map__modis {
+			position: absolute;
+			top: 640px;
+			right: 171px;
+			z-index: 2;
 		}
 	}
 }
