@@ -28,6 +28,11 @@ body {
 	padding: 40px 0;
 }
 
+.us-desc {
+	font-size: 14px;
+	line-height: 1.6;
+}
+
 .black-btn {
 	height: 40px;
 	border: none;
@@ -559,6 +564,87 @@ body {
 					color: red;
 				}
 			}
+		}
+	}
+}
+
+.block-dino {
+	position: relative;
+	padding: 50px 0 120px;
+	text-align: center;
+	color: #fff;
+	background: #0899c0 url(../images/dino-pattern.png) center center / cover;
+
+	&:before {
+		content: "";
+		position: absolute;
+		width: 169px;
+		height: 245px;
+		background: url(../images/dino1.png) center center / contain no-repeat;
+		bottom: 0;
+		left: 50%;
+		margin-left: -450px;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		width: 266px;
+		height: 340px;
+		background: url(../images/dino2.png) center center / contain no-repeat;
+		bottom: -3px;
+		left: 50%;
+		margin-left: 210px;
+	}
+
+	.us-title {
+		padding-bottom: 30px;
+	}
+}
+
+.block-fashion {
+	position: relative;
+	padding: 10px 0 80px;
+	text-align: center;
+	background: #f7ebd5;
+
+	&:before {
+		content: "";
+		position: absolute;
+		width: 335px;
+		height: 341px;
+		background: url(../images/girl1.png) center center / auto no-repeat;
+		bottom: 0;
+		left: 50%;
+		margin-left: -630px;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		width: 409px;
+		height: 271px;
+		background: url(../images/girl2.png) center center / auto no-repeat;
+		bottom: 0;
+		left: 50%;
+		margin-left: 260px;
+	}
+
+	.us-title {
+		padding-bottom: 20px;
+	}
+
+	.fashion__bottom {
+		margin-top: 60px;
+
+		.bottom__title {
+			font-size: 42px;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.bottom__desc {
+			margin-top: 10px;
 		}
 	}
 }
