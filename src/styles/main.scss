@@ -429,6 +429,7 @@ body {
 		}
 
 		.map__enter {
+			display: none;
 			position: absolute;
 			top: 768px;
 			left: 275px;
@@ -437,8 +438,8 @@ body {
 
 		.map__modis {
 			position: absolute;
-			top: 640px;
-			right: 171px;
+			top: 250px;
+			left: 260px;
 			z-index: 2;
 		}
 	}
