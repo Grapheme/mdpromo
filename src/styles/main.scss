@@ -500,9 +500,11 @@ body {
 }
 
 .news-delivery {
-	padding: 40px 20px;
+	padding: 80px 20px;
 	background: #f6f6f6;
 	text-align: center;
+	min-height: 355px;
+	box-sizing: border-box;
 
 	.delivery__title {
 		font-family: 'CenturySchoolbook';
