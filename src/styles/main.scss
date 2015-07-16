@@ -503,7 +503,7 @@ body {
 	padding: 80px 20px;
 	background: #f6f6f6;
 	text-align: center;
-	min-height: 355px;
+	min-height: 360px;
 	box-sizing: border-box;
 
 	.delivery__title {
@@ -566,6 +566,81 @@ body {
 					color: red;
 				}
 			}
+		}
+	}
+}
+
+.block-child {
+	text-align: center;
+	background: #f5f5f5;
+
+	&:after {
+		content: "";
+		display: block;
+		height: 645px;
+		background: url(../images/children.jpg) center center / auto no-repeat;
+	}
+}
+
+.block-cosmo {
+	background: #20c2f8;
+	padding-top: 40px;
+	height: 465px;
+	color: #fff;
+	text-align: center;
+
+	.wrapper {
+		height: 100%;
+		background: url(../images/cosmopolitan.jpg) left bottom no-repeat;
+	}
+
+	.cosmo__cont {
+		padding: 100px 0 0 700px;
+
+		.us-title {
+			padding: 0 0 20px;
+		}
+	}
+}
+
+.block-insta {
+	background: #009dd4;
+	padding-bottom: 75px;
+	text-align: center;
+
+	.insta__title {
+		line-height: 135px;
+
+		.title__item {
+			color: #fff;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 30px;
+			margin: 0 30px;
+			border-bottom: 1px solid transparent;
+			transition: all .2s ease;
+
+			&.active {
+				border-color: #fff;
+			}
+		}
+	}
+
+	.insta__photos {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+
+		.photos__item {
+			display: inline-block;
+			vertical-align: top;
+			width: 185px;
+			height: 185px;
+			margin: 5px;
+			background-size: cover;
+			background-position: center center;
 		}
 	}
 }

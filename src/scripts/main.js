@@ -8,12 +8,25 @@ window.vkw = function() {
 };
 window.countdown = function() {
 	$(".js-countdown")
-		.countdown("2015/07/18", function(event) {
+		.countdown("2015/07/18 12:00:00", function(event) {
 			$(this).text(
 				event.strftime('%D : %H : %M')
 			);
 		});
 };
+window.insta = function() {
+	var show = function(eq) {
+		$.each(['.js-instalink', '.js-instab'], function(i, v){
+			$(v).eq(eq).addClass('active')
+				.siblings().removeClass('active');
+		});
+	}
+	$('.js-instalink').on('click', function(){
+		show($(this).index());
+		return false;
+	});
+	show(0);
+}
 window.scrollShow = function() {
 	var addActive = function(elem, eq, max, time) {
 		elem.filter('[data-number="' + eq + '"]').addClass('active');
@@ -118,6 +131,7 @@ window.mail = function() {
 $(function(){
 	scrollShow();
 	countdown();
+	insta();
 	mail();
 	vkw();
 });

@@ -36,14 +36,10 @@ block content
 		.delivery__title
 			.js-mail-success(style="display: none;") Спасибо, что вы с нами!
 		.delivery__desc.js-mail-fail(style="display: none;") Произошла ошибка, повторите попытку чуть позже.
-	section.block-dino
-		.wrapper
-			.us-title Fashion Dino
-			.us-desc Только 18 и 19 июля на площадке <b>MODIS</b><br>будет разгуливать знаменитый динозавр <b>BE IN</b>.<br>Спеши найти дино и сфотографироваться.<br>Делись с друзьями, используй хештеги <b>#beinru #ilikemodis</b>
 	section.block-fashion
 		.wrapper
 			.us-title Modis Fashion Show
-			.us-desc Лучшие образы на модном показе новой коллекции <b>MODIS</b>
+			.us-desc Лучшие образы на модном показе новой коллекции MODIS
 			.fashion__bottom
 				.bottom__title 19 Июля
 				.bottom__desc с 16:00 до 18:00
@@ -87,7 +83,7 @@ block content
 							.block__image
 								.image__src(style="background-image: url(images/inter2.jpg);")
 							.block__info
-								.info__title #<b>Modis</b>look
+								.info__title #<b>Modis</b>fashion
 								.info__desc Собери свой уникальный образ самым необычным способом. И закрепи его. Да-да, закрепи на большой магнитной доске. Оцени со стороны, какой у тебя вкус.
 					li.metro__block.js-scroll-show(data-row="0" data-number="2")
 						.block-wrapper
@@ -117,6 +113,10 @@ block content
 							.block__info
 								.info__title #<b>Modis</b>Photo
 								.info__desc Образ готов, теперь можно выйти в свет. Там тебя уже караулят папарацци. До встречи на полосах глянца!
+	section.block-dino
+		.wrapper
+			.us-title Fashion Dino
+			.us-desc Только 18 и 19 июля на площадке <b>MODIS</b><br>будет разгуливать знаменитый динозавр <b>BE IN</b>.<br>Спеши найти дино и сфотографироваться.<br>Делись с друзьями, используй хештеги <b>#beinru #ilikemodis</b>
 	section.block-popular
 		.wrapper
 			.us-title Популярные лекторы для MODIS
@@ -182,6 +182,14 @@ block content
 						.list__link
 							a Лектор академии моды и красоты Falma
 						.list__desc Главные правила макияжа для лета.
+	section.block-child
+		.us-title Modis для детей
+		.us-desc Творческая мастерская для детей и взрослых. Создай свой принт для футболки,<br>Прими участие в игре Twister.
+	section.block-cosmo
+		.wrapper
+			.cosmo__cont
+				.us-title Modis Press Wall
+				.us-desc Сделай стильные фото и получи фирменную<br>рамку в подарок.  Окажись на обложке журнала<br><b>COSMOPOLITAN</b> Петербург.
 	section.block-location
 		.wrapper
 			.us-title Как найти нас на фестивале
@@ -189,6 +197,22 @@ block content
 				img.map__image(src="images/map.jpg")
 				img.map__enter(src="images/enter.png")
 				img.map__modis(src="images/modis_location.png")
+	//-section.block-insta
+		.wrapper
+			.insta__title
+				a(href="#").js-instalink.title__item #ILike<b>Modis</b>
+				a(href="#").js-instalink.title__item #<b>Modis</b>Fashion
+				a(href="#").js-instalink.title__item #<b>Modis</b>TV
+			div
+				.insta__photos.js-instab
+					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
+						a(href="#" style="background-image: url(http://likebb.com/media/reports/5407af03f8ce79cecc010000/5407af6ef8ce79cec9010000-thumb.jpg);").photos__item
+				.insta__photos.js-instab
+					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
+						a(href="#" style="background-image: url(http://www.tobtovar.ru/images/com_sobi2/gallery/750/750_image_1.jpg);").photos__item
+				.insta__photos.js-instab
+					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
+						a(href="#" style="background-image: url(http://likebb.com/media/reports/5407af03f8ce79cecc010000/5407af6ef8ce79cec9010000-thumb.jpg);").photos__item
 	section.block-follow
 		.wrapper
 			.us-title Подпишись
