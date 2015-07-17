@@ -38,6 +38,7 @@ gulp.task('scripts', function() {
   return gulp.src([
   		'bower_components/jquery/dist/jquery.min.js',
   		'bower_components/jquery.countdown/dist/jquery.countdown.min.js',
+  		'bower_components/fancybox/source/jquery.fancybox.pack.js',
   		app_path + '/scripts/main.js'])
     .pipe(concat('main.concat.js'))
     .pipe(gulp.dest(build_path + '/scripts/'))
@@ -46,6 +47,7 @@ gulp.task('scripts', function() {
 
 gulp.task('wiredep', function () {
 	return gulp.src([
+				'bower_components/fancybox/source/jquery.fancybox.css'
 			])
 	  .pipe(concat('vendor.css'))
 	  .pipe(gulp.dest(build_path + '/styles/'))

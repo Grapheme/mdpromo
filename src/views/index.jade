@@ -13,6 +13,18 @@ block content
 				.block__date Парк 300-летия Санкт-Петербурга
 				.block__time Приморский проспект, 157
 			a(href="http://vk.com/fest" target="_blank").header__vk-logo
+	section.block-photos
+		.wrapper
+			- var divArray = [{'c': 'photos__left', 'a': [0]},{'c': 'photos__center', 'a': [1,2]},{'c': 'photos__right', 'a': [3,4,5,6]}]
+			- var photosArray = [{'isVideo': true, 'url': 'https://www.youtube.com/embed/G84bDxoEk6w', 'thumb': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'}]
+			each div in divArray
+				div(class="#{div.c}")
+					each i in div.a
+						a.photos-item.js-fancybox(class = photosArray[i].isVideo == true ? 'fancybox.iframe item-video':'' rel="gallery" href="#{photosArray[i].url}" data-row="3" data-number="#{i}")
+							if photosArray[i].isVideo
+								.item__image(href="#" style="background-image: url(#{photosArray[i].thumb})")
+							else
+								.item__image(href="#" style="background-image: url(#{photosArray[i].url})")
 	section.block-counter
 		.wrapper
 			.counter__title ДО НАЧАЛА ФЕСТИВАЛЯ ОСТАЛОСЬ
@@ -130,7 +142,7 @@ block content
 				//- 		.list__desc Как сделать так - чтобы твое фото получило много лайков.
 				.list__item.js-scroll-show(data-row="2" data-number="0")
 					.list-wrapper
-						.list__name Екатерина Нагаева
+						.list__name Лена Нагаева
 						.list__link
 							a(href="http://be-in.ru" target="_blank") be-in.ru
 						.list__desc Как изменится одежда в 2016 году – что будем покупать и носить, а что перестанем.
@@ -197,7 +209,7 @@ block content
 				img.map__image(src="images/map.jpg")
 				img.map__enter(src="images/enter.png")
 				img.map__modis(src="images/modis_location.png")
-	//-section.block-insta
+	//- section.block-insta
 		.wrapper
 			.insta__title
 				a(href="#").js-instalink.title__item #ILike<b>Modis</b>

@@ -21,11 +21,18 @@ window.insta = function() {
 				.siblings().removeClass('active');
 		});
 	}
-	$('.js-instalink').on('click', function(){
-		show($(this).index());
-		return false;
-	});
-	show(0);
+	var init = function() {
+		$('.js-instalink').on('click', function(){
+			show($(this).index());
+			return false;
+		});
+		show(0);
+		$.get('http://common.dev.grapheme.ru/get/instagram/approved?tags[]=modislook&tags[]=modisfashion&limit=3')
+			.done(function(data){
+				console.log(data);
+			});
+	}
+	init();
 }
 window.scrollShow = function() {
 	var addActive = function(elem, eq, max, time) {
@@ -134,4 +141,7 @@ $(function(){
 	insta();
 	mail();
 	vkw();
+	$(".js-fancybox").fancybox({
+		padding: 0
+	});
 });
