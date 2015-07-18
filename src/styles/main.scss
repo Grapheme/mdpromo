@@ -700,12 +700,35 @@ body {
 }
 
 .block-insta {
-	background: #009dd4;
+	//background: #009dd4;
 	padding-bottom: 75px;
 	text-align: center;
 
+	&.insta-top {
+		background: url(../images/photos-back.jpg) center center / cover;
+
+		.us-title {
+			color: #fff;
+		}
+	}
+
+	&.insta-bottom {
+		background: #f7ebd5;
+
+		.us-title {
+			color: #585858;
+		}
+
+		.insta__title {
+			.title__item {
+				color: #585858;
+			}
+		}
+	}
+
 	.insta__title {
-		line-height: 135px;
+		padding: 0 0 50px;
+		//line-height: 135px;
 
 		.title__item {
 			color: #fff;
@@ -717,13 +740,15 @@ body {
 			transition: all .2s ease;
 
 			&.active {
-				border-color: #fff;
+				//border-color: #fff;
+				font-weight: 700;
 			}
 		}
 	}
 
 	.insta__photos {
 		display: none;
+		text-align: left;
 
 		&.active {
 			display: block;
@@ -779,10 +804,10 @@ body {
 	position: relative;
 	padding: 10px 0 80px;
 	text-align: center;
-	background: #f7ebd5;
+	background: #B8D6DE url(../images/fashion_bg.jpg) center center / auto 100% no-repeat;
 	overflow: hidden;
 
-	&:before {
+	/* &:before {
 		content: "";
 		position: absolute;
 		width: 335px;
@@ -802,7 +827,7 @@ body {
 		bottom: 0;
 		left: 50%;
 		margin-left: 260px;
-	}
+	} */
 
 	.us-title {
 		padding-bottom: 20px;

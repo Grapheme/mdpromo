@@ -13,7 +13,7 @@ block content
 				.block__date Парк 300-летия Санкт-Петербурга
 				.block__time Приморский проспект, 157
 			a(href="http://vk.com/fest" target="_blank").header__vk-logo
-	section.block-photos
+	//-section.block-photos
 		.wrapper
 			- var divArray = [{'c': 'photos__left', 'a': [0]},{'c': 'photos__center', 'a': [1,2]},{'c': 'photos__right', 'a': [3,4,5,6]}]
 			- var photosArray = [{'isVideo': true, 'url': 'https://www.youtube.com/embed/G84bDxoEk6w', 'thumb': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'}]
@@ -25,7 +25,7 @@ block content
 								.item__image(href="#" style="background-image: url(#{photosArray[i].thumb})")
 							else
 								.item__image(href="#" style="background-image: url(#{photosArray[i].url})")
-	section.block-counter
+	//- section.block-counter
 		.wrapper
 			.counter__title ДО НАЧАЛА ФЕСТИВАЛЯ ОСТАЛОСЬ
 			.counter__numbers.js-countdown 12 : 08 : 40
@@ -33,6 +33,20 @@ block content
 				span Дни
 				span Часы
 				span Минуты
+	section.block-insta.insta-top.js-instablock(data-i="1")
+		.wrapper
+			.us-title MODIS на фестивале Вконтакте
+			.insta__title.js-instatitle
+			.js-instaphotolist
+	section.block-insta.insta-bottom.js-instablock(data-i="0")
+		.wrapper
+			.us-title Покупатели MODIS вместе с нами
+			.insta__title.js-instatitle
+				//- a(href="#").js-instalink.title__item #ILike<b>Modis</b>
+			.js-instaphotolist
+				//- .insta__photos.js-instab
+					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
+						a(href="#" style="background-image: url(http://likebb.com/media/reports/5407af03f8ce79cecc010000/5407af6ef8ce79cec9010000-thumb.jpg);").photos__item
 	section.news-delivery
 		.wrapper
 			.js-form-parent
@@ -209,22 +223,6 @@ block content
 				img.map__image(src="images/map.jpg")
 				img.map__enter(src="images/enter.png")
 				img.map__modis(src="images/modis_location.png")
-	//- section.block-insta
-		.wrapper
-			.insta__title
-				a(href="#").js-instalink.title__item #ILike<b>Modis</b>
-				a(href="#").js-instalink.title__item #<b>Modis</b>Fashion
-				a(href="#").js-instalink.title__item #<b>Modis</b>TV
-			div
-				.insta__photos.js-instab
-					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
-						a(href="#" style="background-image: url(http://likebb.com/media/reports/5407af03f8ce79cecc010000/5407af6ef8ce79cec9010000-thumb.jpg);").photos__item
-				.insta__photos.js-instab
-					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
-						a(href="#" style="background-image: url(http://www.tobtovar.ru/images/com_sobi2/gallery/750/750_image_1.jpg);").photos__item
-				.insta__photos.js-instab
-					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
-						a(href="#" style="background-image: url(http://likebb.com/media/reports/5407af03f8ce79cecc010000/5407af6ef8ce79cec9010000-thumb.jpg);").photos__item
 	section.block-follow
 		.wrapper
 			.us-title Подпишись

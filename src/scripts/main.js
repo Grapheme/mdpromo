@@ -15,22 +15,60 @@ window.countdown = function() {
 		});
 };
 window.insta = function() {
-	var show = function(eq) {
+	var show = function(eq, parent) {
 		$.each(['.js-instalink', '.js-instab'], function(i, v){
-			$(v).eq(eq).addClass('active')
+			parent.find(v).eq(eq).addClass('active')
 				.siblings().removeClass('active');
 		});
 	}
+	var getPhotos = function(dataStr, callback) {
+		$.ajax({
+			url: 'instagram.php',
+			data: dataStr,
+			dataType: 'json',
+			type: 'GET'
+		})
+		.done(function(data){
+			callback(data);
+		})
+		.fail(function(data){
+			console.log(data);
+			$('.js-instablock').hide();
+		});
+	}
 	var init = function() {
-		$('.js-instalink').on('click', function(){
-			show($(this).index());
+		$(document).on('click', '.js-instalink', function(){
+			var parent = $(this).parents('.js-instablock');
+			show($(this).index(), parent);
 			return false;
 		});
-		show(0);
-		$.get('http://common.dev.grapheme.ru/get/instagram/approved?tags[]=modislook&tags[]=modisfashion&limit=3')
-			.done(function(data){
-				console.log(data);
-			});
+		// Modis, ilikemodis, modisfashion
+		getPhotos('tags[]=modisfashion&tags[]=ilikemodis&tags[]=modis', function(data){
+			var parent = $('.js-instablock[data-i="1"]'),
+				title = parent.find('.js-instatitle'),
+				list = parent.find('.js-instaphotolist');
+				$.each(data, function(i, v){
+					title.append('<a href="#" class="js-instalink title__item">#' + i + '</a>');
+					list.append('<div class="insta__photos js-instab" data-tag="' + i + '"></div>');
+					$.each(v, function(index, value){
+						$('[data-tag="' + i + '"]').append('<a target="_blank" href="' + value.link + '" style="background-image: url(' + value.image + ');" class="photos__item"></a>');
+					});
+				});
+				show(0, $('[data-i="1"]'));
+		});
+		getPhotos('tags[]=modisбонус&tags[]=modislook', function(data){
+			var parent = $('.js-instablock[data-i="0"]'),
+				title = parent.find('.js-instatitle'),
+				list = parent.find('.js-instaphotolist');
+				$.each(data, function(i, v){
+					title.append('<a href="#" class="js-instalink title__item">#' + i + '</a>');
+					list.append('<div class="insta__photos js-instab" data-tag="' + i + '"></div>');
+					$.each(v, function(index, value){
+						$('[data-tag="' + i + '"]').append('<a target="_blank" href="' + value.link + '" style="background-image: url(' + value.image + ');" class="photos__item"></a>');
+					});
+				});
+				show(0, $('[data-i="0"]'));
+		});
 	}
 	init();
 }
