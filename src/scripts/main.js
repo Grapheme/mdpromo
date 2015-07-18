@@ -50,7 +50,10 @@ window.insta = function() {
 				$.each(data, function(i, v){
 					title.append('<a href="#" class="js-instalink title__item">#' + i + '</a>');
 					list.append('<div class="insta__photos js-instab" data-tag="' + i + '"></div>');
+					var count = 0;
 					$.each(v, function(index, value){
+						count++;
+						if(count > 18) return;
 						$('[data-tag="' + i + '"]').append('<a target="_blank" href="' + value.link + '" style="background-image: url(' + value.image + ');" class="photos__item"></a>');
 					});
 				});
@@ -172,6 +175,46 @@ window.mail = function() {
 		return false;
 	});
 };
+window.vote = function() {
+	var voteGirl = function(i) {
+		$('.js-girl[data-girl="' + i + '"] .js-girl-like').addClass('liked');
+		$.ajax({
+			url: 'vote.php',
+			data: 'girl=' + i
+		}).done(function(data){
+			var likesDiv = $('.js-girl[data-girl="' + i + '"] .js-girl-likes')
+			likesDiv.text(data);
+			$.cookie('girl' + i, 'true', {
+				path: '/'
+			});
+		}).fail(function(data){
+			console.log(data);
+		});
+	}
+	var init = function() {
+		$('.js-girl-like').on('click', function(){
+			if($(this).hasClass('liked')) return false;
+			voteGirl($(this).parents('.js-girl').attr('data-girl'));
+			return false;
+		});
+		$('.js-girl').each(function(){
+			var thisId = $(this).attr('data-girl');
+			if($.cookie('girl' + thisId) == 'true') {
+				$(this).find('.js-girl-like').addClass('liked');
+			}
+		});
+		$.get('../pdf/vote.json')
+			.done(function(data){
+				$.each(data, function(index, value){
+					$('.js-girl[data-girl="' + index + '"]').find('.js-girl-likes').text(value);
+				});
+			})
+			.fail(function(data){
+				console.log(data);
+			});
+	}
+	init();
+}
 
 $(function(){
 	scrollShow();
@@ -179,6 +222,7 @@ $(function(){
 	insta();
 	mail();
 	vkw();
+	vote();
 	$(".js-fancybox").fancybox({
 		padding: 0
 	});

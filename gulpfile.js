@@ -39,6 +39,7 @@ gulp.task('scripts', function() {
   		'bower_components/jquery/dist/jquery.min.js',
   		'bower_components/jquery.countdown/dist/jquery.countdown.min.js',
   		'bower_components/fancybox/source/jquery.fancybox.pack.js',
+  		'bower_components/jquery.cookie/jquery.cookie.js',
   		app_path + '/scripts/main.js'])
     .pipe(concat('main.concat.js'))
     .pipe(gulp.dest(build_path + '/scripts/'))

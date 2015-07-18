@@ -800,6 +800,57 @@ body {
 	}
 }
 
+.block-vote {
+	//background: #fafafa;
+	text-align: center;
+	padding-bottom: 50px;
+
+	.vote__girls {
+		overflow: hidden;
+		margin-top: 70px;
+
+		.girls__item {
+			float: left;
+			width: 20%;
+
+			.item__image {
+				height: 420px;
+				background-size: contain;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+
+			.item__title {
+				font-family: 'CenturySchoolbook';
+				font-style: italic;
+				margin-top: 20px;
+			}
+
+			.item__like {
+				margin-top: 20px;
+
+				a {
+					display: inline-block;
+					vertical-align: top;
+					height: 50px;
+					width: 50px;
+					background: url(../images/vote/like.png) center center / auto no-repeat;
+
+					&.liked {
+						background: url(../images/vote/liked.png) center center / auto no-repeat;
+					}
+				}
+			}
+
+			.item__likes {
+				margin-top: 5px;
+				font-size: 24px;
+				color: #009cc1;
+			}
+		}
+	}
+}
+
 .block-fashion {
 	position: relative;
 	padding: 10px 0 80px;

@@ -18,6 +18,7 @@
     "jquery": "~2.1.4",
     "jquery.countdown": "~2.0.4",
     "base64": "~0.3.0",
-    "fancybox": "~2.1.5"
+    "fancybox": "~2.1.5",
+    "jquery.cookie": "~1.4.1"
   }
 }

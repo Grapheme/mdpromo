@@ -47,6 +47,13 @@ block content
 				//- .insta__photos.js-instab
 					each i in [1,1,1,1,1,1,1,1,1,1,1,1]
 						a(href="#" style="background-image: url(http://likebb.com/media/reports/5407af03f8ce79cecc010000/5407af6ef8ce79cec9010000-thumb.jpg);").photos__item
+	section.block-fashion
+		.wrapper
+			.us-title Modis Fashion Show
+			.us-desc Лучшие образы на модном показе новой коллекции MODIS
+			.fashion__bottom
+				.bottom__title 19 Июля
+				.bottom__desc с 16:00 до 18:00
 	section.news-delivery
 		.wrapper
 			.js-form-parent
@@ -62,13 +69,18 @@ block content
 		.delivery__title
 			.js-mail-success(style="display: none;") Спасибо, что вы с нами!
 		.delivery__desc.js-mail-fail(style="display: none;") Произошла ошибка, повторите попытку чуть позже.
-	section.block-fashion
+	section.block-vote
 		.wrapper
-			.us-title Modis Fashion Show
-			.us-desc Лучшие образы на модном показе новой коллекции MODIS
-			.fashion__bottom
-				.bottom__title 19 Июля
-				.bottom__desc с 16:00 до 18:00
+			.us-title #<b>MODIS</b>BUYER
+			.us-desc Проголосуй за понравившийся образ.<br>Образ-победитль можно будет купить во всех магазинах MODIS
+			.vote__girls
+				each i in [1,2,3,4,5]
+					.girls__item.js-girl(data-girl="#{i}")
+						.item__image(style="background-image: url(images/vote/#{i}.png)")
+						.item__title Модель #{i}
+						.item__like
+							a(href="#").js-girl-like
+						.item__likes.js-girl-likes
 	section.block-visit
 		.wrapper
 			.us-title Посетите MODIS Home
