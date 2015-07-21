@@ -598,12 +598,12 @@ body {
 		vertical-align: top;
 		padding: 2px;
 		box-sizing: border-box;
-		transform: translateY(10%);
+		//transform: translateY(10%);
 		opacity: 0;
 		transition: all .75s ease;
 
 		&.active {
-			transform: translateY(0);
+			//transform: translateY(0);
 			opacity: 1;
 		}
 
@@ -621,10 +621,30 @@ body {
 				width: 82px;
 				height: 82px;
 				background: url(../images/play-icon.png) 0 0 / 100% auto no-repeat;
+				transition: all .5s ease;
+				opacity: 0;
+			}
+
+			&:hover {
+				&:before {
+					opacity: 1;
+				}
 			}
 		}
 
+		.item__video {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: -8%;
+			height: 120%;
+			left: 50%;
+			margin-left: -550px;
+		}
+
 		.item__image {
+			overflow: hidden;
 			position: absolute;
 			z-index: 2;
 			top: 2px;

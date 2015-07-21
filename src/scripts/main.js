@@ -87,11 +87,19 @@ window.scrollShow = function() {
 	};
 	var show = function() {
 		$('[data-row]').each(function(){
-			var this_row = $(this).attr('data-row');
-			var this_elems = $('[data-row="' + this_row + '"]');
-			var this_length = this_elems.length;
-			if($(this).offset().top < $(window).scrollTop() + $(window).height()) {
-				addActive(this_elems, 0, this_length, 500);
+			if($(this).hasClass('wonload')) {
+				$(this).find('img').add($(this).find('video')).each(function(){
+					$(this).on('load', function(){
+						$(this).parents('data-number').first().addClass('active');
+					});
+				});
+			} else {
+				var this_row = $(this).attr('data-row');
+				var this_elems = $('[data-row="' + this_row + '"]');
+				var this_length = this_elems.length;
+				if($(this).offset().top < $(window).scrollTop() + $(window).height()) {
+					addActive(this_elems, 0, this_length, 500);
+				}
 			}
 		});
 	};

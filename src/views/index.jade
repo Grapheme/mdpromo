@@ -13,18 +13,48 @@ block content
 				.block__date Парк 300-летия Санкт-Петербурга
 				.block__time Приморский проспект, 157
 			a(href="http://vk.com/fest" target="_blank").header__vk-logo
-	//-section.block-photos
+	section.block-photos
 		.wrapper
 			- var divArray = [{'c': 'photos__left', 'a': [0]},{'c': 'photos__center', 'a': [1,2]},{'c': 'photos__right', 'a': [3,4,5,6]}]
-			- var photosArray = [{'isVideo': true, 'url': 'https://www.youtube.com/embed/G84bDxoEk6w', 'thumb': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'},{'url': 'images/photos-sample.jpg'}]
+			- var photosArray = [{'isVideo': true, 'url': 'http://www.youtube.com/embed/dFutt678-K0', 'thumb': 'images/photos/thumb.png'},{'url': 'images/photos/8.jpg'},{'url': 'images/photos/2.jpg'},{'url': 'images/photos/3.jpg'},{'url': 'images/photos/4.jpg'},{'url': 'images/photos/5.jpg'},{'url': 'images/photos/6.jpg'}]
 			each div in divArray
 				div(class="#{div.c}")
 					each i in div.a
 						a.photos-item.js-fancybox(class = photosArray[i].isVideo == true ? 'fancybox.iframe item-video':'' rel="gallery" href="#{photosArray[i].url}" data-row="3" data-number="#{i}")
 							if photosArray[i].isVideo
-								.item__image(href="#" style="background-image: url(#{photosArray[i].thumb})")
+								.item__image
+									video.item__video(autoplay loop muted poster="images/photos/thumb.png")
+										source(src="images/photos/video.mp4" type="video/mp4")
+										source(src="images/photos/video.ogv" type="video/ogg")
 							else
 								.item__image(href="#" style="background-image: url(#{photosArray[i].url})")
+	section.news-delivery
+		.wrapper
+			.js-form-parent
+				.delivery__title Новостная рассылка
+				.delivery__desc Оставь свой имейл и получи секретную коллекцию MODIS. До того, как тысячи посетителей увидят ее на фестивале!
+				.delivery__form
+					form.js-mail(action="//igoralekseev.us11.list-manage.com/subscribe/post-json?u=786a3d2c7f03ea4539c0dc24d&amp;id=0bdb331b30" method="post")
+						div(style="position: absolute; left: -5000px;")
+							input(type="text" name="b_786a3d2c7f03ea4539c0dc24d_0bdb331b30" tabindex="-1" value="")
+
+						input.form__input(name="EMAIL" placeholder="Введите Ваш email")
+						button(type="submit").black-btn Подписаться
+		.delivery__title
+			.js-mail-success(style="display: none;") Спасибо, что вы с нами!
+		.delivery__desc.js-mail-fail(style="display: none;") Произошла ошибка, повторите попытку чуть позже.
+	section.block-vote
+		.wrapper
+			.us-title #<b>MODIS</b>BUYER
+			.us-desc Проголосуй за понравившийся образ.<br>Образ-победитль можно будет купить во всех магазинах MODIS
+			.vote__girls
+				each i in [1,2,3,4,5]
+					.girls__item.js-girl(data-girl="#{i}")
+						.item__image(style="background-image: url(images/vote/#{i}.png)")
+						.item__title Модель #{i}
+						.item__like
+							a(href="#").js-girl-like
+						.item__likes.js-girl-likes
 	//- section.block-counter
 		.wrapper
 			.counter__title ДО НАЧАЛА ФЕСТИВАЛЯ ОСТАЛОСЬ
@@ -54,33 +84,6 @@ block content
 			.fashion__bottom
 				.bottom__title 19 Июля
 				.bottom__desc с 15:30 до 17:00
-	section.news-delivery
-		.wrapper
-			.js-form-parent
-				.delivery__title Новостная рассылка
-				.delivery__desc Оставь свой имейл и получи секретную коллекцию MODIS. До того, как тысячи посетителей увидят ее на фестивале!
-				.delivery__form
-					form.js-mail(action="//igoralekseev.us11.list-manage.com/subscribe/post-json?u=786a3d2c7f03ea4539c0dc24d&amp;id=0bdb331b30" method="post")
-						div(style="position: absolute; left: -5000px;")
-							input(type="text" name="b_786a3d2c7f03ea4539c0dc24d_0bdb331b30" tabindex="-1" value="")
-
-						input.form__input(name="EMAIL" placeholder="Введите Ваш email")
-						button(type="submit").black-btn Подписаться
-		.delivery__title
-			.js-mail-success(style="display: none;") Спасибо, что вы с нами!
-		.delivery__desc.js-mail-fail(style="display: none;") Произошла ошибка, повторите попытку чуть позже.
-	section.block-vote
-		.wrapper
-			.us-title #<b>MODIS</b>BUYER
-			.us-desc Проголосуй за понравившийся образ.<br>Образ-победитль можно будет купить во всех магазинах MODIS
-			.vote__girls
-				each i in [1,2,3,4,5]
-					.girls__item.js-girl(data-girl="#{i}")
-						.item__image(style="background-image: url(images/vote/#{i}.png)")
-						.item__title Модель #{i}
-						.item__like
-							a(href="#").js-girl-like
-						.item__likes.js-girl-likes
 	section.block-visit
 		.wrapper
 			.us-title Посетите MODIS Home
